@@ -25,7 +25,7 @@
                                 <div class="form-group">
                                 <label for="Jenis" class="col-sm-2 control-label">Jenis</label>
                                 <div class="col-sm-10">
-                                    <select name="jenis" class="form-control" value="{{old ('Jenis')}}">
+                                    <select name="Jenis" class="form-control" value="{{old ('Jenis')}}">
                                         <option value="Internal">Internal</option>
                                         <option value="Eksternal">Eksternal</option>
                                     </select>
