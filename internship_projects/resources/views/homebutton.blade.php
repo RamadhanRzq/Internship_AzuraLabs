@@ -50,12 +50,12 @@
                                 <td class="text-center">{{ $diklats['Durasi'] }}</td>
                                 <td class="text-center">{{ $diklats['Tempat'] }}</td>
                                 <td class="text-center">
-                                    <form method="#" action="#">
+                                    <form method="post" action="{{route ('diklat.destroy',['id' => $diklats->id]) }}">
                                         @method('delete')
                                         @csrf
                                         <div class="btn-group">
                                             <a class="btn btn-primary" href="#">Detail</a>
-                                            <a class="btn btn-warning" href="#">Edit</a>
+                                            <a class="btn btn-warning" href="{{route ('diklat.edit',['id' => $diklats->id]) }}">Edit</a>
                                             <button type="#" class="btn btn-danger">Delete</button>
                                         </div>
                                     </form>
@@ -71,3 +71,26 @@
 </div>
 </div>
   @endsection
+
+@section('script')
+
+<script>
+  $('body').on('click','.delete-confirm',function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+
+    Swal.fire({
+      title: 'Apakah Kamu Yakin ? ',
+      text: "Hapus Data ini!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya, Hapus'
+    }).then((result) => {
+      if (result.value) {
+        window.location.href = url;
+      }
+    })
+  });
+</script>

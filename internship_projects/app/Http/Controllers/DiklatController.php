@@ -118,16 +118,19 @@ class DiklatController extends Controller
             'Tempat' => 'required',
         ]);
 
-        $diklat = Diklat::find($id);
-        $diklat->Nama_Diklat = $request->Nama_Diklat;
-        $diklat->Jenis = $request->Jenis;
-        $diklat->Penyelenggara = $request->Penyelenggara;
-        $diklat->Jumlah_Peserta = $request->Jumlah_Peserta;
-        $diklat->Tanggal_Mulai = $request->Tanggal_Mulai;
-        $diklat->Tanggal_Berakhir = $request->Tanggal_Berakhir;
-        $diklat->Durasi = $request->Durasi;
-        $diklat->Tempat = $request->Tempat;
-        $diklat->save();
+        DB::table('diklat')
+        ->where('id', $id)
+        ->update([
+                    'Nama_Diklat' => $request->Nama_Diklat,
+                    'Jenis' => $request->Jenis,
+                    'Penyelenggara' => $request->Penyelenggara,
+                    'Jumlah_Peserta' => $request->Jumlah_Peserta,
+                    'Tanggal_Mulai' => $request->Tanggal_Mulai,
+                    'Tanggal_Berakhir' => $request->Tanggal_Berakhir,
+                    'Durasi'=> $request->Durasi,
+                    'Tempat' => $request->Tempat,
+                ]);
+
 
         return redirect(route('homebutton'))->with('message','Data Berhasil Ditambahkan');
     }
