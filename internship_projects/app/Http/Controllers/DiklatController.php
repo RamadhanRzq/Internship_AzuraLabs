@@ -93,7 +93,6 @@ class DiklatController extends Controller
         //
         $data['Jenis'] = ['Internal','Eksternal'];
         $data['diklat'] = Diklat::find($id);
-
         return view('homebutton',$data);
     }
 
