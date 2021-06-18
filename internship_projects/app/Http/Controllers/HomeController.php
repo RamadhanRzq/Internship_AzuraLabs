@@ -19,8 +19,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function input()
-    {
-        return view('forms/forminput');
-    }
 }

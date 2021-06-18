@@ -7,7 +7,7 @@
             <div class="card-header">
                 <h3 class="card-title"></h3>
                 <div class="card-tools">
-                 <a href="{{route ('input')}}" class="btn btn-tool">
+                 <a href="{{route ('diklat.create')}}" class="btn btn-tool">
                      <i class="fa fa-plus"></i>
                      &nbsp; Tambahkan Data
                  </a>
@@ -40,21 +40,22 @@
                         <tbody>
                             @foreach($diklat as $diklats)
                             <tr>
-                                <td>{{ $diklats['id'] }}</td>
-                                <td>{{ $diklats['Nama_Diklat'] }}</td>
-                                <td>{{ $diklats['Jenis'] }}</td>
-                                <td>{{ $diklats['Penyelenggara'] }}</td>
-                                <td>{{ $diklats['Jumlah_Peserta'] }}</td>
-                                <td>{{ $diklats['Tanggal_Mulai'] }}</td>
-                                <td>{{ $diklats['Tanggal_Berakhir'] }}</td>
-                                <td>{{ $diklats['Durasi'] }}</td>
-                                <td>{{ $diklats['Tempat'] }}</td>
+                                <td class="text-center">{{ $diklats['id'] }}</td>
+                                <td class="text-center">{{ $diklats['Nama_Diklat'] }}</td>
+                                <td class="text-center">{{ $diklats['Jenis'] }}</td>
+                                <td class="text-center">{{ $diklats['Penyelenggara'] }}</td>
+                                <td class="text-center">{{ $diklats['Jumlah_Peserta'] }}</td>
+                                <td class="text-center">{{ $diklats['Tanggal_Mulai'] }}</td>
+                                <td class="text-center">{{ $diklats['Tanggal_Berakhir'] }}</td>
+                                <td class="text-center">{{ $diklats['Durasi'] }}</td>
+                                <td class="text-center">{{ $diklats['Tempat'] }}</td>
                                 <td class="text-center">
                                     <form method="#" action="#">
                                         @method('delete')
                                         @csrf
                                         <div class="btn-group">
-                                            <a class="btn btn-success" href="#">Edit</a>
+                                            <a class="btn btn-primary" href="#">Detail</a>
+                                            <a class="btn btn-warning" href="#">Edit</a>
                                             <button type="#" class="btn btn-danger">Delete</button>
                                         </div>
                                     </form>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Redirect;
 use Session;
 use App\Diklat;
+use DB;
 
 class DiklatController extends Controller
 {
@@ -32,6 +33,9 @@ class DiklatController extends Controller
     public function create()
     {
         //
+        $data['diklat']= Diklat :: all();
+        $data['Jenis'] = ['Internal','Eksternal'];
+        return view('forms/forminput',$data);
     }
 
     /**
@@ -43,6 +47,28 @@ class DiklatController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'Nama_Diklat' => 'required',
+            'Jenis' => 'required',
+            'Penyelenggara' => 'required',
+            'Jumlah_Peserta' => 'required',
+            'Tanggal_Mulai' => 'required',
+            'Tanggal_Berakhir' => 'required',
+            'Durasi'=> 'required',
+            'Tempat' => 'required',
+        ]);
+        $diklat = new Diklat();
+        $diklat->Nama_Diklat = $request->Nama_Diklat;
+        $diklat->Jenis = $request->Jenis;
+        $diklat->Penyelenggara = $request->Penyelenggara;
+        $diklat->Jumlah_Peserta = $request->Jumlah_Peserta;
+        $diklat->Tanggal_Mulai = $request->Tanggal_Mulai;
+        $diklat->Tanggal_Berakhir = $request->Tanggal_Berakhir;
+        $diklat->Durasi = $request->Durasi;
+        $diklat->Tempat = $request->Tempat;
+        $diklat->save();
+
+        return redirect(route('homebutton'))->with('message','Data Berhasil Ditambahkan');
     }
 
     /**
@@ -65,6 +91,10 @@ class DiklatController extends Controller
     public function edit($id)
     {
         //
+        $data['Jenis'] = ['Internal','Eksternal'];
+        $data['diklat'] = Diklat::find($id);
+
+        return view('homebutton',$data);
     }
 
     /**
@@ -77,6 +107,29 @@ class DiklatController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'Nama_Diklat' => 'required',
+            'Jenis' => 'required',
+            'Penyelenggara' => 'required',
+            'Jumlah_Peserta' => 'required',
+            'Tanggal_Mulai' => 'required',
+            'Tanggal_Berakhir' => 'required',
+            'Durasi'=> 'required',
+            'Tempat' => 'required',
+        ]);
+
+        $diklat = Diklat::find($id);
+        $diklat->Nama_Diklat = $request->Nama_Diklat;
+        $diklat->Jenis = $request->Jenis;
+        $diklat->Penyelenggara = $request->Penyelenggara;
+        $diklat->Jumlah_Peserta = $request->Jumlah_Peserta;
+        $diklat->Tanggal_Mulai = $request->Tanggal_Mulai;
+        $diklat->Tanggal_Berakhir = $request->Tanggal_Berakhir;
+        $diklat->Durasi = $request->Durasi;
+        $diklat->Tempat = $request->Tempat;
+        $diklat->save();
+
+        return redirect(route('homebutton'))->with('message','Data Berhasil Ditambahkan');
     }
 
     /**
@@ -88,5 +141,9 @@ class DiklatController extends Controller
     public function destroy($id)
     {
         //
+        $diklat = Diklat::find($id);
+        $diklat->delete();
+
+        return redirect(route('homebutton'))->with('message','Data Berhasil Dihapus');
     }
 }
