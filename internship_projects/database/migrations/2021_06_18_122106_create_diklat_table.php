@@ -14,8 +14,15 @@ class CreateDiklatTable extends Migration
     public function up()
     {
         Schema::create('diklat', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->bigIncrements('id');
+            $table->string('Nama_Diklat');
+            $table->string('Jenis');
+            $table->string('Penyelenggara');
+            $table->string('Jumlah_Peserta');
+            $table->date('Tanggal_Mulai');
+            $table->date('Tanggal_Berakhir');
+            $table->string('Durasi');
+            $table->string('Tempat');
         });
     }
 
