@@ -38,7 +38,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                           
+                            @foreach($diklat as $diklats)
+                            <tr>
+                                <td>{{ $diklats['id'] }}</td>
+                                <td>{{ $diklats['name'] }}</td>
+                                <td>{{ $diklats['description'] }}</td>
+                                <td>{{ $diklats['description'] }}</td>
+                                <td>{{ $diklats['description'] }}</td>
+                                <td>{{ $diklats['description'] }}</td>
+                                <td>{{ $diklats['description'] }}</td>
+                                <td>{{ $diklats['description'] }}</td>
+                                <td>{{ $diklats['description'] }}</td>
+                                <td class="text-center">
+                                    <form method="#" action="#">
+                                        @method('delete')
+                                        @csrf
+                                        <div class="btn-group">
+                                            <a class="btn btn-success" href="#">Edit</a>
+                                            <button type="#" class="btn btn-danger">Delete</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
