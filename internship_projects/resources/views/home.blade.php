@@ -43,9 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- /.content-header -->
     <!-- Main content -->
-    <div class="col-sm-6">
-    <button href="{{ route('input')}}" type="submit" class="btn btn-primary" >Tambahkan Data</button>
-    </div>
+    
     <!-- /.content -->
     @yield('content')
     
