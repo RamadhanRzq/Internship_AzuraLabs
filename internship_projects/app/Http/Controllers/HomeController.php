@@ -9,10 +9,9 @@ use App\Diklat;
 class HomeController extends Controller
 {
     //
-    public function homeDashboardButton($id)
+    public function homeDashboardButton()
     {
         $data['diklat']= Diklat :: all();
-        $data = DB::select('select * from diklat where id = ?', [$id]);
         return view('homebutton',$data);
     }
 

@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/', 'HomeController@homeDashboardButton')->name('homebutton');
 Route::get('/home', 'HomeController@homeDashboard')->name('home');
 Route::get('/home/input', 'HomeController@input')->name('input');
-Route::get('/index/{id}', 'HomeController@homeDashboardButton')->name('homebutton');
+
+//CRUD
+Route::get('/{id}', 'DiklatController@index')->name('index');

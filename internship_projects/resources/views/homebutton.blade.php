@@ -41,14 +41,14 @@
                             @foreach($diklat as $diklats)
                             <tr>
                                 <td>{{ $diklats['id'] }}</td>
-                                <td>{{ $diklats['name'] }}</td>
-                                <td>{{ $diklats['description'] }}</td>
-                                <td>{{ $diklats['description'] }}</td>
-                                <td>{{ $diklats['description'] }}</td>
-                                <td>{{ $diklats['description'] }}</td>
-                                <td>{{ $diklats['description'] }}</td>
-                                <td>{{ $diklats['description'] }}</td>
-                                <td>{{ $diklats['description'] }}</td>
+                                <td>{{ $diklats['Nama_Diklat'] }}</td>
+                                <td>{{ $diklats['Jenis'] }}</td>
+                                <td>{{ $diklats['Penyelenggara'] }}</td>
+                                <td>{{ $diklats['Jumlah_Peserta'] }}</td>
+                                <td>{{ $diklats['Tanggal_Mulai'] }}</td>
+                                <td>{{ $diklats['Tanggal_Berakhir'] }}</td>
+                                <td>{{ $diklats['Durasi'] }}</td>
+                                <td>{{ $diklats['Tempat'] }}</td>
                                 <td class="text-center">
                                     <form method="#" action="#">
                                         @method('delete')
